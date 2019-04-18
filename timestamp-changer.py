@@ -33,7 +33,10 @@ class TimestampChanger():
     def get_sorted_photos_list(self, entries):
         photos = {}
         for entry in entries:
-            photos[int(entry.name.strip('.JPG'))] = entry
+            if '.JPG' in entry.name:
+                photos[int(entry.name.strip('.JPG'))] = entry
+            else:
+                pass
         return dict(sorted(photos.items())).values()
 
     def change_timestamp(self, dir_name, date):
