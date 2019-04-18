@@ -49,15 +49,13 @@ class TimestampChanger():
 
 def main(dir_name, date):
     # Example: modify_date.py photos/ 17-4-2018
-    #todo Add %H:%M:%S 
+    #todo Add %H:%M:%S
     timestamp = Timestamp(*date.split('-'))
     changer = TimestampChanger()
     print("=> Changing timestamp in {}".format(dir_name))
     print("=> Timestamp: {}".format(date))
 
-    changer.change_timestamp(dir_name,
-        datetime.datetime.strptime(repr(timestamp, '%Y-%m-%d %H:%M:%S'))
+    changer.change_timestamp(dir_name, datetime.datetime.strptime(repr(timestamp), '%Y-%m-%d %H:%M:%S'))
 
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     main(sys.argv[1], sys.argv[2])
